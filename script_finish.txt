@@ -1,0 +1,553 @@
+-- database: c:\Users\U!\Desktop\library2.0\library.sqlite3
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "table-name";
+-- database: c:\Library_DataBase\LibraryDataBase\library_DB.sqlite3
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+-- CREACION DE TABLA BOOKS
+CREATE TABLE Books (
+    Book_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(30) NOT NULL,
+    Author_ID,
+    Description VARCHAR(100) NOT NULL,
+    ISBN VARCHAR NOT NULL,
+    Publication_date DATE NOT NULL,
+    Rental_Amount INTEGER NOT NULL,
+    Number_Copies INTEGER NOT NULL,
+    State VARCHAR(10),
+    FOREIGN KEY (Author_ID) REFERENCES Author (Author_ID)
+);
+INSERT INTO Books(Name, Author_ID, Description, ISBN,
+ Publication_date, Rental_Amount, Number_Copies, State)
+VALUES ("EL cuervo", 1,
+ "El poema El cuevo parte de un tópico literario común: la muerte de la mujer amada. Con este tópico como referencia, la cuestión fundamental parece girar en torno a la muerte como destino inexorable, a su aceptación.",
+ "ISBN 978-84-218-6669-6", "1845-01-21", 30000.00, 58, "Disponible"
+),
+("El Corazón Delator", 1,
+ "La historia presenta a un narrador anónimo obsesionado con el ojo enfermo -que llama ojo de buitre- de un anciano con el cual convive. Finalmente decide asesinarlo. El crimen es planeado cuidadosamente y, tras ser perpetrado, el cadáver es despedazado y escondido bajo las tablas del suelo de la casa.",
+ "ISBN 978-9963-51-685-8", "1843-01-12", 28000.00, 30, "Disponible"
+),
+("Orgullo y Prejuicio", 2,
+ "En esta daptación de la célebre novela de Jane Austen, la joven Lizzie conoce al apuesto y elegante señor Darcy, pero, a primera vista, le parece demasiado orgulloso y arrogante.",
+ "ISBN 978-9963-51-686-5", "1813-01-28", 31000.00, 58, "Disponible"
+),
+("Emma", 2,
+"Conocemos la vida de la joven Emma Woodhouse, que vive en la Inglaterra georgiana. Emma se ocupa de emparejar, unas veces más acertadamente que otras, a sus amigos y familiares.",
+ "ISBN 978-84-218-6671-9", "1815-12-23", 27000.00, 25, "Disponible"
+),
+("Don Quijote de la Mancha", 3, 
+ "El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos. Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas.",
+ "ISBN 978-84-486-0902-3", "1605-01-16", 25000.00, 20, "Disponible"
+),
+(" La Gitanilla", 3,
+ "La gitanilla es la primera novela ejemplar de Miguel de Cervantes. Esta historia cuenta la vida y las andanzas de una bella gitana de la que se enamora un joven noble. Cuando este le declara su amor, ella le impone dos condiciones: esperar dos años para casarse y llevar mientras tanto una vida de gitano.",
+ "ISBN 978-01-905-0341-3", "1613-01-21", 30000.00, 23, "Disponible"
+),
+("Muerte en el Nilo", 4,
+ "Unas apacibles vacaciones en Egipto de una pareja de recién casados se truncan con un asesinato. La joven Linnet aparece muerta durante el crucero por el Nilo. Tiene un disparo en la cabeza. El detective Hércules Poirot será el encargado de tratar de resolver el misterio.",
+ "ISBN 978-9963-48-975-6", "1937-11-01", 22000.00, 16, "Disponible"
+),
+("Las Manzanas", 4,
+ "Durante los preparativos de una fiesta de Halloween, Joyce Reynolds —una adolescente conocida por su fecunda imaginación y por las mentiras que cuenta habitualmente— explica a todo el mundo que en una ocasión presenció un asesinato. Nadie cree lo que oye y ella se marcha enfurecida.",
+ "ISBN 978-84-218-6669-6", "1969-11-01", 21000.00, 20, "Disponible"
+),
+("Once Minutos", 5,
+ "Maria es de un pueblo situado al norte de Brasil. Todavía adolescente, viaja a Río de Janeiro, donde conoce a un empresario que le ofrece un buen trabajo en Ginebra. Allí, Maria sueña con encontrar fama y fortuna, pero acabará ejerciendo la prostitución.",
+ "ISBN 978-01-905-0328-4", "2003-01-12", 15000.00, 18, "Disponible"
+),
+("Adulterio", 5,
+ "Linda está casada con un hombre rico, tienen dos hijos y la familia vive en una hermosa casa en Ginebra, Suiza. Trabaja en el periódico más importante del país, es guapa, viste bien y tiene todo lo que se pueda desear. A ojos de todos, su vida es perfecta. Sin embargo, no es feliz; una gran insatisfacción la corroe y se siente culpable por no ser capaz de disfrutar de lo que tiene. Por eso no habla con nadie de lo que sucede. Ama a su marido pero la relación con él se ha vuelto rutinaria, apática.",
+ "ISBN 978-84-218-6674-0", "2014-04-10", 20000.00, 20, "Disponible"
+),
+("Tiempos Dificiles", 6,
+ "En Coketown, trasunto de cualquier ciudad industrial de la Inglaterra victoriana, el rígido y práctico director de escuela Thomas Gradgrind y su socio, el presuntuoso y mezquino empresario Josiah Bounderby, imponen su ley y su estrecha y árida visión de la vida a alumnos y obreros, cada uno en su ámbito.",
+ "ISBN 978-9963-51-703-9", "1854-08-12", 30000.00, 10, "Disponible"
+),
+("Calle Sin Salida", 6,
+ "En el Londres de mediados del siglo XIX, la vida cotidiana de un joven hombre de negocios se complica de forma repentina. Una difícil promesa hecha a un amigo, la traición de alguien en quien confía y el deseo de ser digno de su amada van a dar un giro a su existencia.",
+ "ISBN 978-84-675-8702-9", "1867-08-12", 22000.00, 14, "Disponible"
+),
+(" Los Pilares De la Tierra", 7,
+ "Los pilares de la Tierra es una novela histórica del autor británico Ken Follett, ambientada en Inglaterra en la Edad Media, en concreto en el siglo XII, durante un periodo de guerra civil conocido como la anarquía inglesa, entre el hundimiento del White Ship y el asesinato del arzobispo Thomas Becket.",
+ "ISBN    978-84-486-0876-7", "1989-01-21", 21000.00, 24, "Disponible"
+),
+("Un Mundo Sin Fin", 7,
+ "Los pilares de la Tierra narra los acontecimientos de la ciudad inglesa de Kingsbridge entre 1135 y 1174. Con Un mundo sin fin regresamos a Kingsbridge, pero 153 años después.",
+ "ISBN 978-84-218-6669-6", "2007-01-21", 20000.00, 58, "Disponible"
+),
+("Romance Gitano", 8,
+ "Cuenta la historia de un joven gitano que es asesinado por sus propios primos en un acto de venganza. El poema denuncia la violencia y la crueldad inherentes a la sociedad andaluza de la época y, al mismo tiempo, rinde homenaje al coraje y la dignidad de los gitanos.",
+ "ISBN 978-84-682-0121-4", "1928-01-21", 22000.00, 10, "Disponible"
+),
+("Poeta En New York", 8,
+ "Poeta en Nueva York fue para Lorca un grito de horror, de denuncia contra la injusticia y la discriminación, contra la deshumanización de la sociedad moderna y la alienación del ser humano, al tiempo que reclamaba una nueva dimensión humana donde predominase la libertad y la justicia, el amor y la belleza.",
+ "ISBN 978-84-218-4957-6", "1940-03-12", 18000.00, 12, "Disponible"
+),
+("Cien Años De Soledad", 9,
+ "En Cien Años de Soledad, el autor narra en 20 capítulos la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo -comenzando por el patriarca José Arcadio Buendía y su prima y esposa Úrsula Iguarán-, amalgamando fantasía y realidad.",
+ "ISBN 978-9963-51-085-6", "1967-05-01", 19000.00, 25, "Disponible"
+),
+("Todos Los Cuentos", 9,
+ "Este volumen excepcional reúne por primera vez todos los cuentos del Premio Nobel de Literatura Gabriel García Márquez.",
+ "ISBN 978-9963-51-086-3", "1975-05-22", 17000.00, 20, "Disponible"
+),
+("El viejo Y El Mar", 10,
+ "Con un lenguaje de gran fuerza y sencillez,El viejo y el mar narra la historia de un viejo pescador cubano a quien la suerte parece haber abandonado, y del desafío mayor al que se enfrenta: la batalla despiadada y sin tregua con un pez gigantesco en las aguas del golfo.",
+ "ISBN 978-84-682-2948-5", "1952-02-02", 20000.00, 58, "Disponible"
+),
+("Fiesta", 10,
+ "Esta hermosa y punzante historia narra la excursión a Pamplona de un grupo de americanos e ingleses exiliados en París en los años veinte, donde se reencuentran la seductora Brett Ashley y el desventurado Jake Barnes, que durante la Primera Guerra Mundial vivieron un amor genuino e irrealizable.",
+ "ISBN 978-84-481-9154-2", "1926-10-22", 20000.00, 58, "Disponible"
+);
+select * from Books;
+
+
+-- CREACIÓN DE UNIQUE INDEX
+CREATE UNIQUE INDEX index_Library
+on Books (Book_ID);
+-- To make a more efficient query at the time of
+-- consult the books, the Book ID is unique, which allows the search to be faster.
+
+
+-----------------------------------------
+--CREACION DE TABLA SHOPPING_CART
+CREATE TABLE Shopping_Cart(
+    Shopping_Cart_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    User_ID INTEGER NOT NULL,
+    Rental_Time_ID INTEGER NOT NULL,
+    Payment_Amount DECIMAL NOT NULL,
+    Loan_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Return_Date DATETIME NOT NULL,
+    Late_Amount DECIMAL NOT NULL,
+    Transaction_Numer INTEGER NOT NULL,
+    State VARCHAR(50) DEFAULT "Rentado",
+    FOREIGN KEY (User_ID) REFERENCES Users (User_ID),
+    FOREIGN KEY (Rental_Time_ID) REFERENCES Rental_Time (Rental_Time_ID)
+);
+
+INSERT INTO Shopping_cart(
+User_ID,
+Rental_Time_ID,
+Payment_Amount,
+Return_Date,
+Late_Amount,
+Transaction_Numer)
+VALUES(4, 2, 20000, DATE('NOW', '+7 day'), 0.15, 23323);
+
+DELETE FROM Shopping_Cart;
+-----------------------------------------
+
+DELETE FROM Inventory;
+---------   Book_Shooping_cart  ---------
+
+INSERT INTO Book_Shooping_cart(
+Book_ID,
+Shopping_Cart_ID)
+VALUES(1, 1);
+INSERT INTO Return_book ( Book_Shooping_cart_ID,Shopping_Cart_ID)
+VALUES(1,1);
+
+--CREACIÓN DE TRIGGER PARA ACTUALIZAR INVENTARIO CADA VEZ QUE SE RENTE UN LIBRO
+CREATE TRIGGER update_inventory
+AFTER INSERT
+ON Book_Shooping_cart
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory
+    SET Quantity_avaible = 
+        CASE WHEN (SELECT Quantity_avaible FROM Inventory WHERE Book_ID = NEW.Book_ID) > 0
+                 THEN Quantity_avaible - 1
+                 ELSE Quantity_avaible
+        END,
+        Already_rentad = 
+        CASE WHEN (SELECT Quantity_avaible FROM Inventory WHERE Book_ID = NEW.Book_ID) > 0
+                 THEN Already_rentad + 1
+                 ELSE Already_rentad
+        END
+    WHERE Book_ID = NEW.Book_ID;
+ SELECT CASE WHEN (SELECT Quantity_avaible FROM Inventory WHERE Book_ID = NEW.Book_ID) <= 0
+  THEN RAISE(ABORT, 'Intento de alquiler de libro sin inventario suficiente')
+    ELSE NULL
+    END;
+END;
+
+--CREACIÓNDE TRIGGER DE ACTUALIZACIÓN DE ESTADO DE LIBRO
+CREATE TRIGGER update_state_book
+AFTER INSERT ON Return_book
+FOR EACH ROW
+BEGIN
+    UPDATE Shopping_Cart
+    SET State = 'Devuelto'
+    WHERE Shopping_Cart_ID = NEW.Shopping_Cart_ID;
+END;
+drop TRIGGER update_state_book;
+------------------------------------------------------------
+
+
+--CREACIÓN DE TABLA RETURN_BOOKS
+CREATE TABLE Return_book(
+    Return_book_ID INTEGER NOT NULL PRIMARY KEY,
+    Shopping_Cart_ID INTEGER NOT NULL,
+    Book_Shooping_cart_ID INTEGER NOT NULL,
+    Returned_Date DATE DEFAULT CURRENT_DATE,
+    State varchar(50) DEFAULT 'Returned',
+    FOREIGN KEY (Book_Shooping_cart_ID) REFERENCES Book_Shooping_cart (Book_Shooping_cart_ID),
+
+    FOREIGN KEY (Shopping_Cart_ID) REFERENCES Shopping_Cart (Shopping_Cart_ID)
+);
+
+------------------------------------------
+
+
+--CREACIÓN DE TABLA GenreBook
+CREATE TABLE GenreBook(
+    GenreBook_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Book_ID,
+    Genre_ID,
+    FOREIGN KEY (Book_ID) REFERENCES Books (Book_ID),
+    FOREIGN KEY (Genre_ID) REFERENCES Genre (Genre_ID)
+);
+INSERT INTO GenreBook(Book_ID, Genre_ID)
+VALUES(1, 14),
+    (2, 1), 
+    (2, 2), 
+    (3, 3),
+    (3, 4),
+    (4, 5),
+    (4, 7),
+    (5, 3),
+    (5, 6),
+    (6, 7),
+    (7, 8),
+    (7, 3),
+    (7, 9),
+    (8, 8),
+    (8, 9),
+    (9, 3),
+    (9, 7),
+    (10, 7),
+    (11, 3),
+    (11, 7),
+    (12, 11),
+    (13, 12),
+    (13, 3),
+    (13, 13),
+    (14, 13),
+    (15, 14),
+    (16, 14),
+    (17, 15),
+    (17, 16),
+    (18, 15),
+    (19, 17),
+    (19, 18),
+    (20, 12),
+    (20, 19);
+-------------------------------------------
+
+
+--CREACIÓN DE TABLA Genre
+CREATE TABLE Genre(
+    Genre_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Description VARCHAR(100) NOT NULL
+);
+
+INSERT INTO Genre(Description)
+VALUES ("Terror"),
+    ("Ficción Gótica"),
+    ("Novela"),
+    ("Romance"),
+    ("Comedia"),
+    ("Parodiama"),
+    ("Ficción"),
+    ("Misterio"),
+    ("Ficcion Criminal"),
+    ("Novela"),
+    ("Cine Negro"),
+    ("Novela Histórica"),
+    ("Ficción Histórica"),
+    ("Poesía"),
+    ("Realismo Mágico"),
+    ("Alta fantasía"),
+    ("Alegoría"),
+    ("Historia de mar"),
+    ("Novela en clave"),
+    ("Narrativo"),
+    ("Lírico"),
+    ("Dramático"),
+    ("Ditáctico");
+--------------------------------------------
+
+
+--CREACIÓN DE TABLA Inventory
+CREATE TABLE Inventory(
+    Inventory_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Book_ID INTEGER NOT NULL,
+    Quantity_avaible INTEGER NOT NULL,
+    Already_rentad INTEGER NOT NULL,
+    FOREIGN KEY (Book_ID) REFERENCES Books (Book_ID)
+);
+INSERT INTO Inventory(Book_ID, Quantity_avaible, Already_rentad)
+VALUES (1, 58, 0),
+    (2, 30, 0),
+    (3, 58, 0),
+    (4, 20, 0),
+    (5, 25, 0),
+    (6, 20, 0),
+    (7, 23, 0),
+    (8, 16, 0),
+    (9, 20, 0),
+    (10, 18, 0),
+    (11, 10, 0),
+    (12, 14, 0),
+    (13, 24, 0),
+    (14, 58, 0), 
+    (15, 10, 0),
+    (16, 12, 0),
+    (17, 25, 0),
+    (18, 20, 0),
+    (19, 58, 0),
+    (20, 58, 0);
+
+
+
+--------------------------------------------
+--CREACIÓN DE TABLA AUTHOR
+CREATE TABLE Author(
+    Author_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(30) NOT NULL,
+    Description VARCHAR(100)
+);
+SELECT * FROM "Author";
+INSERT INTO Author(Name, Description) 
+VALUES ("Edgar Allan Poe.","Escritor,poeta"),
+    ("Jane Austen.","Novelista Britanica"),
+    ("Miguel Cervantes.","Novelista,poeta"),
+    ("Agatha Chistie.","Escritora y Dramaturga Británica"),
+    ("Paulo Coelho.","Novelista"),
+    ("Charles Dickens.","Escritor"),
+    ("Ken Follet.","Escritor Britanico"),
+    ("Federico Garcia Lorca.","Poeta y Damaturgo"),
+    ("Gabriel García Márquez.","Ecritor y Periodista"),
+    ("Ernest Hemingway.","Escritor y Periodista estadounidense");
+
+
+
+-----------------------------------------------------
+--CREACIÓN DE TABLA Author_Book
+CREATE TABLE Author_Book(
+    AuthorBook_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Book_ID INTEGER NOT NULL,
+    Author_ID INTEGER NOT NULL,
+    FOREIGN KEY (Book_ID) REFERENCES Books (Book_ID),
+    FOREIGN KEY (Author_ID) REFERENCES Author (Author_ID)
+);
+INSERT INTO Author_Book (Book_ID,Author_ID)
+VALUES (1,1),
+(2,1), (3,2), (4,2), (5,3), (5,3), (6,4), (7,4), (8,5),
+(9,5), (9,6), (10,6), (10,7), (11,7), (12,8), (12,8),
+(13,9), (13,9), (14,10), (15,10);
+
+
+--------------------------------------------------------
+--CREACIÓN DE TABLA Payment_Method
+CREATE TABLE Payment_Method(
+    Payment_Method_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    User_ID,
+    Description VARCHAR(100) NOT NULL,
+    State VARCHAR(20) NOT NULL,
+    FOREIGN KEY (User_ID) REFERENCES Users (User_ID)
+);
+
+
+
+-----------------------------------------------------
+--CREACIÓN DE TABLA USER
+CREATE TABLE Users(
+    User_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    User_Type_ID,
+    Name VARCHAR(30) NOT NULL, 
+    Email VARCHAR(40) NOT NULL,
+    Password VARCHAR(10) NOT NULL,
+    Phone VARCHAR NOT NULL,
+    State VARCHAR(10) NOT NULL,
+    FOREIGN KEY (User_Type_ID) REFERENCES User_Type (User_Type_ID)
+);
+INSERT INTO Users(User_Type_ID, Name, Email, Password, Phone, State)
+VALUES(1, "Edward Medina", "med@gmail.com", "12345676E", "+506 6287-2940", "Activo"),
+    (1, "Astrid Serrano", "ser@gmail.com", "yiodojvu12", "+506 9836-2931", "Activo"),
+    (1, "Cristobal Rodriguez", "cris@gmail.com", "93jd29j2SD", "+506 7293-2937", "Activo"),
+    (2, "Andres Gutierrez", "drews@gmail.com", "ñoñopoqw12", "+506 6287-9009", "Activo"),
+    (2, "Nazly Perez", "naz@gmail.com", "pote1294", "+506 7587-1254", "Activo"),
+    (2, "Daniel Oduver", "niel@gmail.com", "9827kdpo", "+506 7423-9854", "Activo"),
+    (2, "Pedro Sanchez", "dro@gmail.com", "jdupi1245", "+506 9191-1213", "Activo"),
+    (2, "Paquita del Barrio", "ita@gmail.com", "Perritos123", "+506 8191-3121", "Activo"),
+    (2, "Allison Diaz", "sun@gmail.com", "sunnie123", "+506 7121-5893", "Activo"),
+    (2, "Valery Miranda", "val@gmail.com", "vale1239", "+506 8732-0121", "Activo"),
+    (2, "Lorgie Arrieta", "lor@gmail.com", "lorgi232h", "+506 8291-3212", "Activo"),
+    (2, "Jefferson Alcócer", "jef@gmail.com", "jef1290p", "+506 7689-6512", "Activo"),
+    (2, "Iveth Solano", "iveth@gmail.com", "ivent239po", "+506 9823-1247", "Activo"),
+    (2, "Franciny Centeno", "fran@gmail.com", "franc32390", "+506 7592-9812", "Activo"),
+    (2, "Sofía Mendez", "sof@gmail.com", "sofmen1492", "+506 7898-0971", "Activo"),
+    (2, "Roberto Ortega", "ort@gmail.com", "robort120", "+506 6909-4578", "Activo"),
+    (2, "Carolina Blandón", "caro@gmail.com", "caro021po", "+506 8976-5893", "Activo"),
+    (2, "Alvarito Ramirez", "alvr@gmail.com", "alvrdiaz1", "+506 6789-0997", "Activo"),
+    (2, "Sheryl Chevez", "sher@gmail.com", "shervo12", "+506 6785-9213", "Activo"),
+    (2, "Jair Ugalde", "jair@gmail.com", "ugalde12", "+506 8123-7805", "Activo");
+
+------------------------------------------------------
+--CREACIÓN DE TABLA INTERMEDIA BOOKS_RENTAL
+CREATE TABLE Book_Shooping_cart(
+    Book_Shooping_cart_ID INTEGER NOT NULL PRIMARY KEY,
+    Book_ID INTEGER NOT NULL,
+    Shopping_Cart_ID INTEGER NOT NULL,
+    FOREIGN KEY (Book_ID) REFERENCES Books (Book_ID),
+    FOREIGN KEY (Shopping_Cart_ID) REFERENCES Shopping_Cart (Shopping_Cart_ID)
+);
+DROP TABLE Book_Shooping_cart;
+
+-------------------------------------------------------
+--CREACIÍON DE VISTA 
+CREATE VIEW Report AS
+SELECT b.Name, b.ISBN, sc.Payment_Amount, sc.Loan_Date, sc.Return_Date, b.State
+FROM Books b inner join Book_Shooping_cart bsc 
+on b.Book_ID = bsc.Book_ID
+inner join Shopping_Cart sc on bsc.Shopping_Cart_ID = sc.Shopping_Cart_ID
+where sc.State = "Rentado" AND sc.Loan_Date = date('now');
+SELECT State FROM Shopping_Cart;
+SELECT Loan_Date from Shopping_Cart;
+-------------------------------------------------------
+DROP VIEW Report;
+--CREACIÓN DE TABLA Rental_Time
+CREATE TABLE Rental_Time(
+    Rental_Time_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Description INTEGER NOT NULL,
+    State VARCHAR(10) NOT NULL
+);
+INSERT INTO Rental_Time(Description,State) 
+VALUES("1 día","Activo"),
+    ("1 semana","Activo"),
+    ("1 mes","Activo"),
+    ("3 meses","Activo"),
+    ("6 meses","Activo");
+
+
+-------------------------------------------------------
+--CREACIÓN DE TABLA User_Type
+CREATE TABLE User_Type(
+    User_Type_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Description VARCHAR(100) NOT NULL,
+    State VARCHAR(10)
+);
+INSERT INTO User_Type(Description, State)
+ VALUES("Administrador", "Activo"),
+    ("Cliente", "Activo");
+
+SELECT Description, State, IFF(Description != "", State = "Activo", State = "Inactivo")
+FROM User_Type
+WHERE Description != "";
+SELECT * FROM User_Type;
+DELETE FROM Books;
+DROP TABLE Books;
+
+
+--------------------------------------------------------
+--CREACIÓN DE TABLA Reviews
+CREATE TABLE Reviews(
+    Reviews_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Book_ID,
+    User_ID,
+    Comment_date DATE NOT NULL,
+    Score INTEGER NOT NULL,
+    Comment VARCHAR(1000) NOT NULL,
+    FOREIGN KEY (Book_ID) REFERENCES Books (Book_ID),
+    FOREIGN KEY (User_ID) REFERENCES Users (User_ID)
+);
+INSERT INTO Reviews(Book_ID, User_ID, Comment_date, Score, Comment)
+VALUES (1, 4, "2023-09-29", 6, 'Excelente libro, lo recomiendo, me cambió'),
+    (2, 5, "2023-09-29", 2, 'Me pareció bien, pero no hubo tanto desarrollo de personaje'),
+    (3, 6, "2023-09-29", 3, 'Excelente libro, pegué la lotería gracias a él'),
+    (4, 7, "2023-09-29", 1, 'Quedé esperando más de este libro');
+---------------------------------------------------------------------------
+
+
+--------------------------- Queries ---------------------------------------
+--1 ASK CALL BOOKS WITH MORE THAN 3 STARS
+Select b.Name as "Libro" , r.Score as "Puntaje"
+from Books b 
+inner join Reviews r 
+on b.Book_ID = r.Book_ID
+where r.Score > 3;
+
+
+--2 Query to find out how many books of the same genre exist in the database ---
+SELECT g.Description as "Género", COUNT(g.Description) as "Cantidad"
+FROM Books b
+INNER JOIN GenreBook gb on b.Book_ID = gb.Book_ID
+INNER JOIN Genre g on g.Genre_ID = gb.Genre_ID
+GROUP BY g.Description ORDER BY g.Description ASC;
+
+
+--Query to get books by name
+-- ■ One where we can search for names that start with a specific text
+-- ■ Another query where we can search for books whose name ends with a text
+-- specific (letter)
+
+SELECT b.Name as "Libro"
+FROM Books b
+WHERE b.Name like 'E%';
+
+SELECT b.Name as "Libro"
+FROM Books b
+WHERE b.Name like '%o';
+
+--Query to know the books rented by a user (by email) the previous month
+SELECT b.Name AS "Books"
+FROM Books b INNER JOIN Book_Shooping_cart bsc ON b.Book_ID = sc.Shopping_Cart_ID
+INNER JOIN Shopping_Cart sc ON bsc.Shopping_Cart_ID = sc.Shopping_Cart_ID
+INNER JOIN Users u ON u.User_ID = sc.User_ID
+WHERE u.Email = 'drews@gmail.com' AND 
+strftime('%Y-%m', sc.Loan_Date) = strftime('%Y-%m', 'now', '-1 mes');
+
+--Query that allows us to know the average number of books rented per day
+SELECT AVG(sc.Shopping_Cart_ID)
+FROM Books b INNER JOIN Shopping_Cart bsc on b.Book_ID = sc.Shopping_Cart_ID
+inner join Shopping_Cart sc on bsc.Shopping_Cart_ID = sc.Shopping_Cart_ID
+WHERE sc.Loan_Date = current_date
+group by sc.Loan_Date
+ORDER BY sc.Loan_Date ASC;
+
+--Check to find out which was the most rented book in the previous month
+SELECT Books.Name
+FROM Shopping_Cart
+JOIN Books ON Shopping_Cart.Shopping_Cart_ID = Book_ID
+GROUP BY Books.Name
+ORDER BY COUNT(*) DESC
+;
+--Query that allows us to know which books are not in the inventory but are in the book table
+SELECT Books.Book_ID, Books.Name
+FROM Books
+LEFT JOIN Inventory ON Books.Book_ID = Inventory.Inventory_ID
+WHERE Inventory.Inventory_ID IS NULL;
+-------------------------------CONSULTAS ADMS------------------------------------
+
+
+-- Update the status of orders or records of rented books
+
+UPDATE Shopping_Cart 
+SET state = 1
+WHERE EXISTS(SELECT 1 FROM Users 
+JOIN Shopping_Cart  ON Shopping_Cart.state = Users.User_ID
+JOIN User_Type  ON User_Type.User_Type_ID  = Users.User_ID
+WHERE Users.User_ID = 3 AND User_Type.User_Type_ID = 2 ) AND state = 3;
+
+
+-- Enable or disable reviews/comments (reviews/feedback) made to books
+
+DELETE FROM Reviews
+WHERE EXISTS(SELECT 1 FROM Users 
+JOIN Reviews  ON Reviews.Reviews_ID  = Users.User_Type_ID
+JOIN User_Type  ON User_Type.User_Type_ID  = Users.User_Type_ID 
+WHERE Users.User_ID = 3 AND User_Type.User_Type_ID  = 2 ) AND Comment >= 'Excelente libro, lo recomiendo, me cambió';
